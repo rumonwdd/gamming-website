@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alphabet clash <progress></progress></title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 
     <!-- insurt the tailwind css file in browser -->
 
@@ -15,11 +22,112 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
-    <section>
-        <h2>rummon </h2>
-    </section>
+<body class="">
+    <main  class="min-h-screen bg-black bg-no-repeat  bg-center justify-center bg-[url(images/background.png)] flex items-center">
 
+        <!-- Home Page section -->
+        <section id="home-screen" class="text-white text-center justify-center bg-no-repeat ">
+
+           <div class=" flex flex-col justify-center items-center gap-10 min-h-screen">
+            <h1 class=" text-9xl uppercase font-anton">ALPHABET CLASH</h1>
+            <p class="text-2xl">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+            <p><button onclick="play()" class="btn btn-soft btn-secondary text-black p-5 text-2xl">Play</button></p>
+           </div>
+
+
+        </section>
+        <!-- playground section -->
+        <section id="play-ground" class=" justify-center items-center hidden">
+
+            <!-- screen start hare -->
+
+            <div class="h-[300px] w-[1200px] border-[20px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]">
+                <div class=" ">
+                    <p class="text-2xl bg-[#2F2941] w-5/12 text-white px-10 flex mx-auto rounded-b-xl justify-center text-center items-center py-4">Don't watch keyboard  while playing...</p>
+                    <div class="flex justify-center items-center">
+                        <span id="current-alphabet" class="text-9xl text-yellow-700 uppercase">Y</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+            <div>
+                <!-- start hare -->
+
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="q" class="kbd">q</kbd>
+                    <kbd id="w" class="kbd">w</kbd>
+                    <kbd id="e" class="kbd">e</kbd>
+                    <kbd id="r" class="kbd">r</kbd>
+                    <kbd id="t" class="kbd">t</kbd>
+                    <kbd id="y" class="kbd">y</kbd>
+                    <kbd id="u" class="kbd">u</kbd>
+                    <kbd id="i" class="kbd">i</kbd>
+                    <kbd id="o" class="kbd">o</kbd>
+                    <kbd id="p" class="kbd">p</kbd>
+                  </div>
+                  <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="a" class="kbd">a</kbd>
+                    <kbd id="s" class="kbd">s</kbd>
+                    <kbd id="d" class="kbd">d</kbd>
+                    <kbd id="f" class="kbd">f</kbd>
+                    <kbd id="g" class="kbd">g</kbd>
+                    <kbd id="h" class="kbd">h</kbd>
+                    <kbd id="j" class="kbd">j</kbd>
+                    <kbd id="k" class="kbd">k</kbd>
+                    <kbd id="l" class="kbd">l</kbd>
+                  </div>
+                  <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="z" class="kbd">z</kbd>
+                    <kbd id="x" class="kbd">x</kbd>
+                    <kbd id="c" class="kbd">c</kbd>
+                    <kbd id="v" class="kbd">v</kbd>
+                    <kbd id="b" class="kbd">b</kbd>
+                    <kbd id="n" class="kbd">n</kbd>
+                    <kbd id="m" class="kbd">m</kbd>
+                    <kbd id="/" class="kbd">/</kbd>
+                  </div>
+
+                 <!-- end hare -->
+
+            </div>
+
+            <div class="text-white flex justify-between w-3/4 mx-auto">
+                <button class="btn bg-[#894189] rounded-full">
+                    <span class="text-white">Life</span>
+                    <img src="images/dolar.png" alt="">
+                    <span id="current-life">5</span>
+                    
+                  </button>
+                  <button class="btn bg-[#360490] rounded-full">
+                    <span class="text-white">Score</span>
+                    <img src="images/heart.png" alt="">
+                    <span id="current-score" class="text-white text-3xl">0</span>
+                  </button>
+            </div>
+
+           
+
+        </section>
+
+        <!-- score section -->
+        <section id="game-over" class="hidden">
+           <div class="justify-center text-center bg-[#FFFFFF33] p-8 rounded-2xl min-w-full">
+            <h2 class="text-2xl">Game Over !!</h2>
+            <div class="flex ">
+                
+                <span class="text-6xl text-white">Score:</span>
+                <span id="final-score" class="text-3xl text-white">0</span>
+            </div>
+            <button onclick="play()" class="btn my-4 text-2xl">Play Again</button>
+            <p class="text-xl text-white">Practice will make you Pro</p>
+           </div>
+        </section>
+    </main>
+
+    <script src="js/utility.js"></script>
     <script src="js/clash.js"></script>
 </body>
 
